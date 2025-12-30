@@ -411,6 +411,11 @@ git pull origin main –rebase</pre>
 <p>關鍵字：plotter解說</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/VOyhUiU_arg?si=9aS9bXAEPlcMSyoz" title="YouTube video player" width="560"></iframe></p><h2>41323142：楊紹凱</h2>
 <h2>41323145：熊有為</h2>
-<h2>41323148：鄭宇哲</h2>
+<p>製作plotter心得:</p>
+<p data-end="72" data-start="0">這次在 Webots 製作 Plotter 的操作流程，主要是在 Scene Tree 逐層把機構「接起來」並讓控制器能「叫得到」裝置。先把場景底板（RectangleArena、背景光源）建好，接著在 Robot 底下依序建立各段 HingeJoint，重點是把 jointParameters 的 <em data-end="172" data-start="166">axis</em>、<em data-end="181" data-start="173">anchor</em>、以及必要的 <em data-end="207" data-start="188">minStop / maxStop</em> 檢查清楚，避免關節方向或支點位置錯誤造成整體幾何跑掉。每個關節的 device 也要確實放入 RotationalMotor，並且把 motor 的 name（如 t1、t2）固定一致，不然控制器用 <code data-end="334" data-start="321">getDevice()</code> 會找不到。連桿端用 endPoint 的 Solid / SolidReference（solidName） 方式把 link 串接，配合 DEF 命名讓結構更好管理、也比較不容易接錯。最後再確認各 Solid 的 translation/rotation、rotationStep，以及 physics（密度、質量設定）與 boundingObject，確保模擬運動比較穩定。</p>
+<p data-end="618" data-start="531">整體心得是：Webots 這類機構作品成功與否，常常不在程式本身，而在 Scene Tree 的命名一致性、關節參數正確性、以及 link 串接關係 是否完全對得上。</p>
+<p data-end="618" data-start="531"></p>
+<p data-end="618" data-start="531">以下為plotter的製作過程影片:</p>
+<p data-end="618" data-start="531"><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/tqRrJdfqI28" width="560"></iframe></p><h2>41323148：鄭宇哲</h2>
 <h2>41323150：蕭日政</h2>
 <h2>41136123：黃育驊</h2>
